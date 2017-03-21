@@ -19,6 +19,14 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+" NERDTreeTabsをnvim起動時に同時に起動
+let g:nerdtree_tabs_open_on_console_startup=1
+
+" terminal mode時にcommandモードに切り替えるための設定 
+if has('nvim')
+  tnoremap <silent> <ESC> <C-\><C-n>
+endif
+
 " python3
 let g:python3_host_prog = $PYENV_ROOT.'/shims/python3'
 
