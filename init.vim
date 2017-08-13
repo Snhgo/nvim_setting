@@ -1,9 +1,8 @@
 set number
 set noswapfile
 
-inoremap <silent> @@ <ESC>
+inoremap <silent> <C-q> <ESC>
 nnoremap <silent> <C-e> :NERDTreeTabsToggle<CR>
-
 " インサートモード時の移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -14,10 +13,27 @@ inoremap <C-l> <Right>
 nnoremap <C-n> gt
 nnoremap <C-p> gT
 
+" ノーマルモード時だけ ; と : を入れ替える
+nnoremap ; :
+nnoremap : ; 
+
+" 新しいタブでターミナルを起動
+nnoremap <C-t> :tabe<CR>:terminal<CR>
+" Ctrl + q でターミナルを終了
+tnoremap <C-q> <C-\><C-n>:q<CR>
+" ESCでターミナルモードからノーマルモードへ
+tnoremap <ESC> <C-\><C-n>
+" ターミナルモードでのタブ移動
+tnoremap <C-l> <C-\><C-n>gt
+tnoremap <C-h> <C-\><C-n>gT
+
 filetype indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" 起動時にNERDTreeTabsを
+let g:nerdtree_tabs_open_on_console_startup=1
 
 " python3
 let g:python3_host_prog = $PYENV_ROOT.'/shims/python3'
