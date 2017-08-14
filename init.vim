@@ -1,31 +1,11 @@
 set number
 set noswapfile
 
-inoremap <silent> <C-q> <ESC>
-nnoremap <silent> <C-e> :NERDTreeTabsToggle<CR>
-" インサートモード時の移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+"let mapleader = "\<Space>"
 
-" タブ移動
-nnoremap <C-n> gt
-nnoremap <C-p> gT
-
-" ノーマルモード時だけ ; と : を入れ替える
-nnoremap ; :
-nnoremap : ; 
-
-" 新しいタブでターミナルを起動
-nnoremap <C-t> :tabe<CR>:terminal<CR>
-" Ctrl + q でターミナルを終了
-tnoremap <C-q> <C-\><C-n>:q<CR>
-" ESCでターミナルモードからノーマルモードへ
-tnoremap <ESC> <C-\><C-n>
-" ターミナルモードでのタブ移動
-tnoremap <C-l> <C-\><C-n>gt
-tnoremap <C-h> <C-\><C-n>gT
+" Nerd_Commenter の基本設定
+let g:NERDCreateDefaultMappings = 0
+let NERDSpaceDelims = 1
 
 filetype indent on
 set tabstop=2
@@ -86,4 +66,4 @@ if dein#check_install()
   call dein#install()
 endif
 
-
+runtime! keymap.rc.vim
